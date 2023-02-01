@@ -1,6 +1,6 @@
 let userWins = 0,
     computerWins = 0;
-    
+
 alert(" Please open the control panel: CTRL + SHIFT + I ");
 
 console.log("Let's get started!");
@@ -20,11 +20,14 @@ function game() {
 
         while ((playerSelection === null) || (playerSelection === '') || (!choices.includes(playerSelection))) {
 
-            if (playerSelection === '' || playerSelection === null) {
+            if (playerSelection === '') {
                 playerSelection = prompt("You entered nothing.\n Try again...Rock, paper or scissors:")
-            } else {
+            } if (playerSelection === null) {
+                prompt("Good Bye!\n Maybe next time.")
+                break;
+            }else {
                 playerSelection = prompt("You typed it wrong.\n Try again. Choose rock, paper or scissors: ");
-                if (playerSelection !== null) {
+                if (playerSelection !== null || (playerSelection === ' ' + playerSelection + ' ')) {
                     playerSelection = playerSelection.toLowerCase().trim();
                 };
             }
